@@ -1,0 +1,25 @@
+HTML Pages
+
+Shelf names - WantToRead, Reading, Finished
+Nav - includes search bar {Homepage}
+Books - search results {view} {book component}
+Single Book - when user chooses a specific search result {book component}
+Users - displays all user profiles {views} {user component}
+User Profile - for user details {user component}
+Bookcase - shows first 5 books from each shelf {view} {shelf component, bookCover component}
+Shelf (template) - {shelf component/template, bookCover component}
+About/Contact Us - static {view}
+
+/search - query API
+/books - findAll()
+/books/id - findById()
+/users - findAll()
+/users/id - findById()
+/users/id/bookcase - shows all three shelves
+/users/id/want-to-read 
+/users/id/want-to-read/id - find book by id within shelf
+/users/id/reading
+/users/id/reading/id
+/users/id/finished
+/users/id/finished/id
+/about-us
