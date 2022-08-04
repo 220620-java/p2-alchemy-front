@@ -2,3 +2,65 @@
 	font-family: Helvetica;
 	background-color: gray;
 }
+
+body {
+    font-size:1.8vw;
+}
+
+nav {
+    display:flex;
+    justify-content: space-between;
+    font-size:2.2vw;
+    margin:1em;
+    padding:.5em;
+}
+
+main, section {
+    margin:1em;
+    padding:2em;
+}
+
+main {
+    padding:1em 3em;
+}
+
+.images {
+    display:grid;
+    grid-template: "img img img" / auto;
+}
+
+.images>img {
+    max-width:100%;
+    
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border:2px solid;
+}
+
+th,td {
+    padding:1em;
+}
+
+fieldset {
+    border:none;
+}
+
+form {
+    margin:auto;
+    width:fit-content;
+    justify-content:center;
+}
+
+input {
+    font-size: 1.8vw;
+}
+
+form>button {
+    margin:0% 0% 0% 42%;
+}
+
+button:hover, a:hover {
+    cursor:pointer;
+}
