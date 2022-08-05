@@ -24,19 +24,21 @@ async function getLoggedInUser() {
 }
 
 function showLoggedInDisplay() {
+	document.getElementById('nav-books').hidden=true;
     document.getElementById('nav-login').hidden=true;
-    document.getElementById('logoutBtn').hidden=false;
+    document.getElementById('nav-logout').hidden=false;
     document.getElementById('myBookcase').hidden=false;
 
-    document.getElementById('logoutBtn').addEventListener('click', logOut);
+    document.getElementById('nav-logout').addEventListener('click', logOut);
 }
 
 function showLoggedOutDisplay() {
+	document.getElementById('nav-books').hidden=false;
     document.getElementById('nav-login').hidden=false;
-    document.getElementById('logoutBtn').hidden=true;
-    document.getElementById('myBookcase').hidden=true;
+    document.getElementById('nav-logout').hidden=true;
+    document.getElementById('nav-bookcase').hidden=true;
 
-    document.getElementById('logoutBtn').removeEventListener('click', logOut);
+    document.getElementById('nav-logout').removeEventListener('click', logOut);
 }
 
 function logOut() {

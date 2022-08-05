@@ -29,7 +29,6 @@ async function login() {
     if (resp.status===200) {
         loggedInUser = await resp.json();
         if (loggedInUser) {
-			//change here -----------------------------------------------------------------
             sessionStorage.setItem('alchemyapp-tkn', resp.headers.get('Auth'));
             sessionStorage.setItem('alchemyapp-id', loggedInUser.id);
             window.location.href='./index.html';
