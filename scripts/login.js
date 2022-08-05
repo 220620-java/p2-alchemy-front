@@ -30,8 +30,8 @@ async function login() {
         loggedInUser = await resp.json();
         if (loggedInUser) {
 			//change here -----------------------------------------------------------------
-            sessionStorage.setItem('petapp-tkn', resp.headers.get('Auth'));
-            sessionStorage.setItem('petapp-id', loggedInUser.id);
+            sessionStorage.setItem('alchemyapp-tkn', resp.headers.get('Auth'));
+            sessionStorage.setItem('alchemyapp-id', loggedInUser.id);
             window.location.href='./index.html';
         }
     } else {
