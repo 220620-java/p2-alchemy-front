@@ -5,16 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- update to ${username}'s Profile -->
     <title>Alchemy Books | Your Profile</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
+    <script src="profile.js" defer></script>
   </head>
   
   <body>
-  	<main>
+  
+  	<header class="row">
+  		<h1 id="page-title" class="col-sm-12 col-md-6 col-lg-3"></h1>
+  		<nav class="navbar navbar-default">
+			<ul id="nav-list">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="books.html">Books</a></li>
+				<li><a id="nav-login" href="login.html">Login</a></li> <!-- link to signup in login.html-->
+				<!-- index.js hides login button and adds profile button, plus username to welcome, if user is logged in -->
+			</ul>
+		</nav>
+  	</header>
   	
+  	<main>
+  		<section id="userDetails">
+  			<h2>Your Account Details</h2>
+  			<h3 id="username"></h3>
+  			<h3 id="userid"></h3>
+  			<h3 id="name"></h3>
+  		</section>
+  		<section id="bookcase">
+  			<h2><a href="bookcase.html">View you Bookcase here!</a></h2>
+  		</section>
   	</main>
   </body>
   
