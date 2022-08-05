@@ -1,21 +1,33 @@
-<!-- displays book search results -->
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Search Results - BookLocker</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  
-  <body>
-  	<main>
-  	
-  	</main>
-  
-	<script src="index.js"></script>
-  </body>
-  
+<html>
+<head>
+<script src="scripts/books.js"></script>
+</head>
+<body>
+    <table id="employee" class="table table-bordered table table-hover" width="100%" cellspacing="0"><colgroup><col /><col /><col /></colgroup>
+        <thead>
+        <tr>
+        <th>BookName</th>
+        <th>ISBN</th>
+        <th>Author First Name</th>
+        <th>Author Lirst Name</th>
+        </tr>
+        </thead>
+        <tbody id="emp_body"></tbody>
+        </table>
+        <div id="pager"></div>
+
+
+---------------------------------------------------------
+       <!-- Using AJAX to get data from an API-->
+        <br>
+        <input type="string" id="dataInput" />
+        <button type="button" id="getData">Get Data</button>
+        <section id="data">
+
+        </section>
+
+        
+</body>
 </html>
+
