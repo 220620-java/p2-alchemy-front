@@ -1,7 +1,8 @@
-var api = "https://www.googleapis.com/books/v1/volumes?q=";
-var isbn ="";
-var Isbnquery= isbn +"+isbn"
-var key = "&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew"
+var api = `https://www.googleapis.com/books/v1/volumes?q=`;
+var isbn =``;
+var Isbnquery= isbn +`+isbn`;
+var key = `&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew`;
+var paginationapi=`&startIndex=${one}&maxResults=${five}`;
 //this url is a test url below
 
 //apiURL = "https://www.googleapis.com/books/v1/volumes?q=water&key=&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew";
@@ -12,7 +13,7 @@ var key = "&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew"
 // Endpoint you are sending a GET request to
 
 
-document.getElementById('getData').onclick =getData();
+document.getElementById('getData').onclick =getData;//call this as a callback
 
 // Get the input field
 var userInput = document.getElementById('dataInput');
@@ -27,7 +28,7 @@ userInput.addEventListener("keypress", function(event) {
     event.preventDefault();
     // Trigger the button element with a click
     
-    document.getElementById("getData").click()=getData();
+    document.getElementById("getData").onclick=getData;
   }
 });
 
@@ -36,7 +37,7 @@ function getData() {
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
    
-    var apiURL = api + userInput+ key;
+    var apiURL = api + userInput.value+ key;
     
 
     // 4 steps to making an AJAX call
@@ -88,7 +89,7 @@ function getData() {
     }
 }
 
-
+/*
   function isObject(val){
     if(val===null){
         return false;
@@ -100,6 +101,7 @@ function getData() {
 function objProps(obj){
     for(let val in obj){
         if(isObject(obj[val])){
+            if(obj)
             objProps(obj[val]);
         }else{
             console.log(val,obj[val]);
@@ -108,6 +110,94 @@ function objProps(obj){
     
 
 }
+*/
+
+let currentStart = 0;
+let numberPerPage = 15;
+
+//button.addEventListener('click', nextPage); //add a next page button 
+
+function nextPage() {
+    currentStart += numberPerPage;
+
+    showBooks();
+}
+var five =5;
+var one =1;
+async function showBooks() {
+    let resp = await fetch(apiUrl);
+    if (resp.ok) {
+       let books = await resp.json();
+       displayBooks(books);
+
+   }
+}
+/*
+function displayBooks(books) {
+    for (let book of books) {
+        let title = book[2].volumeInfo.title;
+        let authors = book[2].volumeInfo.authors;
+        let pageCount = book[2].volumeInfo.pageCount;
+        let categories = book[2].volumeInfo.categories;
+
+        for (let category of categories) {
+            let li = document.createElement('li');
+            li.innerText = category;
+        }
+    }
+}
+*/
+/*
+function displayBooks(books){
+    for(let i=0;i<books.length;i++){
+        let title = books.items[i].volumeInfo.title;
+        let authors = books.items[i].volumeInfo.authors;
+        let pageCount = books.items[i].volumeInfo.pageCount;
+        let categories = books.items[i].volumeInfo.categories;
+
+        
+    }
+
+}
+*/
+
+
+async function getPets() {
+    let resp = await fetch(apiUrl+'/pets');
+
+    if (resp.ok) {
+        let pets = await resp.json();
+        showPets(pets);
+    }
+}
+
+function showPets(books) {
+    books = Object.values(books);
+    console.log(books);
+    for (let i=2    ;i<books.length;i++) {
+        // create a row for each pet
+        let tr = document.createElement('tr');
+        console.log(books.items[i].volumeInfo.title);
+        let petNeeds = petNeedsString(pet.needs);
+        tr.innerHTML = `
+            <td>${books.items[i].volumeInfo.title}</td>
+            <td>${books.items[i].volumeInfo.industryIdentifiers}</td>
+        `;
+       // this can go up there ^ <td><button type="button" id="adopt_${pet.id}">Adopt</button></td>
+        petsTable.appendChild(tr);
+       // document.getElementById('adopt_'+pet.id).addEventListener('click', adoptPet);
+    }
+    
+}
+
+
+
+
+
+
+
+
+
 
 
   
@@ -115,9 +205,9 @@ function populateData(response) {
     //var dataSection = document.getElementById('data');
     //console.log(response.items[0].volumeInfo.authors);//authors
     //console.log(response.items[0].volumeInfo.industryIdentifiers[0]);//grabs the isbn 13 
-var  output = objProps(response);
+//var  output = objProps(response);
 
-   
+showPets(response);
 
  
   
