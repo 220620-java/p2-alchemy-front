@@ -1,3 +1,4 @@
+let apiUrl = 'http://localhost:8080'
 getLoggedInUser().then(setup);
 
 function setup() {
@@ -9,16 +10,17 @@ function setup() {
     }
 }
 
+
 async function login() {
     let msgSpan = document.getElementById('msg');
     msgSpan.innerText='';
 
-    let username = document.getElementById('usernameInput').value;
-    let password = document.getElementById('passwordInput').value;
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
 
     let credentials = {username:username, password:password};
 
-    let resp = await fetch(apiUrl+'/auth', {
+    let resp = await fetch(apiUrl+'/users/login', {
         method:'POST',
         body:JSON.stringify(credentials),
         headers:new Headers({
@@ -29,8 +31,7 @@ async function login() {
     if (resp.status===200) {
         loggedInUser = await resp.json();
         if (loggedInUser) {
-            sessionStorage.setItem('alchemyapp-tkn', resp.headers.get('Auth'));
-            sessionStorage.setItem('alchemyapp-id', loggedInUser.id);
+            sessionStorage.setItem('alchemy-id', loggedInUser.id);
             window.location.href='./index.html';
         }
     } else {

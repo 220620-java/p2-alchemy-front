@@ -1,1 +1,1 @@
-getLoggedInUser();
+getLoggedInUser()

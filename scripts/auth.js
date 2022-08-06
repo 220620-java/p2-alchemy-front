@@ -3,13 +3,10 @@ let loggedInUser;
 
 // retrieve the currently logged in user from the back end
 async function getLoggedInUser() {
-    let userId = sessionStorage.getItem('alchemyapp-id');
+	//change here -----------------------------------------------------------------
+    let userId = JSON.parse(sessionStorage.getItem('alchemy-id'));
     if (userId) {
-        let resp = await fetch(apiUrl+'/users/'+userId, {
-            headers:new Headers({
-                'Auth':sessionStorage.getItem('alchemyapp-tkn')
-            })
-        });
+        let resp = await fetch(apiUrl+'/users/'+userId);
         
         if (resp.ok) {
             loggedInUser = await resp.json();
@@ -23,20 +20,19 @@ async function getLoggedInUser() {
     }
 }
 
+// hides/shows links when logged in
 function showLoggedInDisplay() {
-	document.getElementById('nav-books').hidden=true;
-    document.getElementById('nav-login').hidden=true;
-    document.getElementById('nav-logout').hidden=false;
-    document.getElementById('myBookcase').hidden=false;
+    document.getElementById('loginLink').hidden=true;
+    document.getElementById('logoutBtn').hidden=false;
+    document.getElementById('myShelves').hidden=false;
 
     document.getElementById('nav-logout').addEventListener('click', logOut);
 }
-
+// hides/shows linkes when logged out
 function showLoggedOutDisplay() {
-	document.getElementById('nav-books').hidden=false;
-    document.getElementById('nav-login').hidden=false;
-    document.getElementById('nav-logout').hidden=true;
-    document.getElementById('nav-bookcase').hidden=true;
+    document.getElementById('loginLink').hidden=false;
+    document.getElementById('logoutBtn').hidden=true;
+    document.getElementById('myShelves').hidden=true;
 
     document.getElementById('nav-logout').removeEventListener('click', logOut);
 }
@@ -45,7 +41,7 @@ function logOut() {
     loggedInUser = null;
     sessionStorage.clear();
     showLoggedOutDisplay();
-    if (window.location.href.includes('bookcase.html' || 'shelf.html')) {
+    if (window.location.href.includes('books.html')) {
         window.location.href='./index.html';
     }
 }
