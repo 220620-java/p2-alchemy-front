@@ -12,7 +12,7 @@ async function showShelves() {
     let categoryTable = document.getElementById('categoryTable');
     let resp = await fetch(apiUrl+'/category/all');
     let categories = await resp.json();
-
+    // gets list of all categories in database
     for (let category of categories) {
         // create a row for each pet
         let tr = document.createElement('tr');
