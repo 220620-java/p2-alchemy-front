@@ -173,18 +173,26 @@ async function getPets() {
 
 function showPets(books) {
     books = Object.values(books);
-    console.log(books);
-    for (let i=2    ;i<books.length;i++) {
+    //console.log(books[0]);
+    //console.log(books[1]);
+    console.log(books[2]);
+    let barray=books[2];
+    console.log(barray.length);
+    console.log(barray[1].volumeInfo.title);
+   // console.log(barray[i]["volumeInfo"]["title"]);
+    for (let i=0 ;i< barray.length;i++) {
         // create a row for each pet
         let tr = document.createElement('tr');
-        console.log(books.items[i].volumeInfo.title);
-        let petNeeds = petNeedsString(pet.needs);
+        console.log(barray[i].volumeInfo.title);
+       // let petNeeds = petNeedsString(pet.needs);
         tr.innerHTML = `
-            <td>${books.items[i].volumeInfo.title}</td>
-            <td>${books.items[i].volumeInfo.industryIdentifiers}</td>
+            <td>${barray[i].volumeInfo.title}</td>
+            <td>${barray[i].volumeInfo.industryIdentifiers[0].type}</td>
+            <td>${barray[i].volumeInfo.authors[0]}</td>
+            <td><img src="${barray[i].volumeInfo.imageLinks.smallThumbnail}" width="25" height="25" /></td>
         `;
        // this can go up there ^ <td><button type="button" id="adopt_${pet.id}">Adopt</button></td>
-        petsTable.appendChild(tr);
+       document.getElementById("emp_body").appendChild(tr);
        // document.getElementById('adopt_'+pet.id).addEventListener('click', adoptPet);
     }
     
