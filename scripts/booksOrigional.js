@@ -103,69 +103,6 @@ function getData() {
     }
 }
 
-/*
-  function isObject(val){
-    if(val===null){
-        return false;
-    }
-    return (typeof val ==='object');
-}
-function objProps(obj){
-    for(let val in obj){
-        if(isObject(obj[val])){
-            if(obj)
-            objProps(obj[val]);
-        }else{
-            console.log(val,obj[val]);
-        }
-    }
-}
-*/
-
-let currentStart = 0;
-let numberPerPage = 15;
-
-//button.addEventListener('click', nextPage); //add a next page button 
-
-function nextPage() {
-    currentStart += numberPerPage;
-    showBooks();
-}
-var five =5;
-var one =1;
-async function showBooks() {
-    let resp = await fetch(apiUrl);
-    if (resp.ok) {
-       let books = await resp.json();
-       displayBooks(books);
-
-   }
-}
-/*
-function displayBooks(books) {
-    for (let book of books) {
-        let title = book[2].volumeInfo.title;
-        let authors = book[2].volumeInfo.authors;
-        let pageCount = book[2].volumeInfo.pageCount;
-        let categories = book[2].volumeInfo.categories;
-
-        for (let category of categories) {
-            let li = document.createElement('li');
-            li.innerText = category;
-        }
-    }
-}
-*/
-/*
-function displayBooks(books){
-    for(let i=0;i<books.length;i++){
-        let title = books.items[i].volumeInfo.title;
-        let authors = books.items[i].volumeInfo.authors;
-        let pageCount = books.items[i].volumeInfo.pageCount;
-    }
-}
-*/
-
 function showBooks(books) {
     books = Object.values(books);
     //console.log(books[0]);
@@ -184,7 +121,7 @@ function showBooks(books) {
             <td>${barray[i].volumeInfo.title}</td>
             <td>${barray[i].volumeInfo.industryIdentifiers[0].identifier}</td>
             <td>${barray[i].volumeInfo.authors[0]}</td>
-            <td><img src="${barray[i].volumeInfo.imageLinks.thumbnail}" width="70vw" height="70vw" /></td>
+            <td><img src="${barray[i].volumeInfo.imageLinks.thumbnail}" width="70vw" height="90vw" /></td>
             <td><button id="${barray[i].id}" onClick="addBook(this)" 
             value="${barray[i].volumeInfo.imageLinks.thumbnail}">Add</button></td>
         `;
@@ -235,4 +172,24 @@ function populateData(response) {
     /*
         Process data from the API to display on the page.
     */
+}
+
+let currentStart = 0;
+let numberPerPage = 15;
+
+//button.addEventListener('click', nextPage); //add a next page button 
+
+function nextPage() {
+    currentStart += numberPerPage;
+    showBooks();
+}
+var five =5;
+var one =1;
+async function showBooks() {
+    let resp = await fetch(apiUrl);
+    if (resp.ok) {
+       let books = await resp.json();
+       displayBooks(books);
+
+   }
 }
