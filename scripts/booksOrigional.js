@@ -3,6 +3,8 @@ var isbn =``;
 var Isbnquery= isbn +`+isbn`;
 var key = `&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew`;
 var paginationapi=`&startIndex=${one}&maxResults=${five}`;
+
+getLoggedInUser();
 //this url is a test url below
 
 //apiURL = "https://www.googleapis.com/books/v1/volumes?q=water&key=&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew";
@@ -14,6 +16,7 @@ var paginationapi=`&startIndex=${one}&maxResults=${five}`;
 
 
 document.getElementById('getData').onclick =getData;//call this as a callback
+document.getElementById('addBook').onclick = addBook;
 
 // Get the input field
 var userInput = document.getElementById('dataInput');
@@ -32,11 +35,30 @@ userInput.addEventListener("keypress", function(event) {
   }
 });
 
-   
+async function addBook(element) {
+    let shelfRequest = {category:'wish list', book:element.value};
+    let resp = await fetch(apiUrl+'/shelf', {
+        method: 'POST',
+        body:JSON.stringify(shelfRequest),
+        headers:new Headers({
+            'Content-Type':'application/json'
+        })
+    });
+    if(resp.status==201) {
+        let shelf = await resp.json();
+        console.log(JSON.stringify(shelf.id));
+        resp = await fetch(apiUrl+'/users/'+sessionStorage.getItem('alchemy-id')+'/addbook/'+shelf.id, {
+            method: 'PUT',
+            headers:new Headers({
+                'Content-Type':'application/json'
+            })
+        });
+    }
+}
 function getData() {
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
-   
+    userInput = document.getElementById('dataInput');
     var apiURL = api + userInput.value+ key;
     
 
@@ -171,7 +193,8 @@ async function getPets() {
     }
 }
 
-function showPets(books) {
+function showBooks(books) {
+
     books = Object.values(books);
     //console.log(books[0]);
     //console.log(books[1]);
@@ -190,17 +213,15 @@ function showPets(books) {
             <td>${barray[i].volumeInfo.industryIdentifiers[0].identifier}</td>
             <td>${barray[i].volumeInfo.authors[0]}</td>
             <td><img src="${barray[i].volumeInfo.imageLinks.smallThumbnail}" width="25" height="25" /></td>
-            <td><button id ="buttons">add</button></td>
+            <td><button id="addBook" onClick="addBook(this)" value="${barray[i].id}">add</button></td>
         `;
        // this can go up there ^ <td><button type="button" id="adopt_${pet.id}">Adopt</button></td>
+       console.log(barray[i].id);
        document.getElementById("emp_body").appendChild(tr);
        // document.getElementById('adopt_'+pet.id).addEventListener('click', adoptPet);
     }
-    var btn = document.getElementById("buttons").onclick=buttonclick;
+    //var btn = document.getElementById("addBook").onclick=addBook(this);
 
-    function buttonclick(){
-        console.log("hello");
-    }
 
 
 
@@ -251,8 +272,9 @@ function populateData(response) {
     //console.log(response.items[0].volumeInfo.authors);//authors
     //console.log(response.items[0].volumeInfo.industryIdentifiers[0]);//grabs the isbn 13 
 //var  output = objProps(response);
-
-showPets(response);
+let empBody = document.getElementById("emp_body");
+empBody.innerHTML='';
+showBooks(response);
 
  
   
