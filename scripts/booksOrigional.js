@@ -5,9 +5,7 @@ var key = `&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew`;
 var paginationapi=`&startIndex=${one}&maxResults=${five}`;
 
 getLoggedInUser();
-//this url is a test url below
-//apiURL = "https://www.googleapis.com/books/v1/volumes?q=water&key=&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew";
-// Endpoint you are sending a GET request to
+
 document.getElementById('getData').onclick =getData;//call this as a callback
 document.getElementById('addBook').onclick = addBook;
 
