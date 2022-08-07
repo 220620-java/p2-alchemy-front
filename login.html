@@ -34,6 +34,30 @@
                 </div>
             </form>
         </div>
+        <form method="POST">
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" id="registerUsername" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" id="registerPassword" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" id="registerFirstName" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" id="registerLastName" class="form-control"/>
+            </div>
+            <div id="errorRegister"></div>
+            <br />
+            <div class="form-group">
+                <button type="button" class="btn btn-primary form-control" onClick="register()">Login</button>
+                <span id="registerS"></span>
+            </div>
+        </form>
     </div>
 </body>
 </html>
