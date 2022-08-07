@@ -12,21 +12,16 @@
   </head>
   
   <body>
-  
-  	<header class="row">
-  		<h1 id="page-title" class="col-sm-12 col-md-6 col-lg-3">Welcome to Alchemy Books!</h1>
-  		<nav class="navbar navbar-default">
-			<ul id="nav-list">
-				<li><a href="index.html">Home</a></li>
-				<li id="nav-books"><a href="books.html">Books</a></li>
-				<li id="nav-bookcase"><a href="bookcase.html">BookCase</a>
-				<li id="nav-login"><a href="login.html">Login</a></li> <!-- link to signup in login.html-->
-				<!-- index.js hides login button and adds profile button, plus username to welcome, if user is logged in -->
-			</ul>
-		</nav>
-  	</header>
-  	
   	<main>
+			<header class="row border-bottom">
+        <h1 id="page-title" class="col-sm-10 col-md-6 col-lg-9"><a href="index.html" class="text-dark">Alchmy Books</a> - My Shelves</h1>
+        <nav class="navbar navbar-default col-sm-2 col-md-6 col-lg-3">
+          <a href="login.html" id="loginLink" class="text-dark">Log In</a>
+          <a href="#" id="logoutBtn" class="text-dark">Log Out</a>
+          <a href="shelves.html" id="myShelves" class="text-dark">Shelves</a>
+        </nav>
+      </header>
+
   		<section id="userDetails">
   			<h2>Your Account Details</h2>
   			<h3 id="username"></h3>

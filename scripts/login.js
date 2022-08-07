@@ -1,4 +1,4 @@
-let apiUrl = 'http://localhost:8080'
+let apiUrl = 'http://localhost:8080';
 getLoggedInUser().then(setup);
 
 function setup() {
@@ -9,7 +9,6 @@ function setup() {
         window.location.href='./index.html';
     }
 }
-
 
 async function login() {
     let msgSpan = document.getElementById('msg');

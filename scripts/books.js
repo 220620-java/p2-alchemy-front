@@ -15,31 +15,19 @@ arr.push(`GxXGDwAAQBAJ?`);
 arr.push(`UY_MAwAAQBAJ?`);
 
 
-
+//volquery+key for single book page
 
 
 function getData(apiURL) {
-    // If using input for identifiers, etc.
-    // For example, if using PokeAPI, this may be the Pokemon's ID.
-   
- 
-   
-    
-
     // 4 steps to making an AJAX call
     // STEP 1: Create an XML Http Request object
     var xhttp = new XMLHttpRequest();
-
     // STEP 2: Set a callback function for the readystatechange event
     xhttp.onreadystatechange = receiveData;
-
     // STEP 3: Open the request
-  
     xhttp.open('GET', apiURL);
- 
     // STEP 4: Send the request
     xhttp.send();
-
     // This needs to be an inner function so that it has closure to xhttp.
     function receiveData() {
         /*
@@ -59,8 +47,6 @@ function getData(apiURL) {
                 var response = xhttp.responseText;
                 response = JSON.parse(response);
                 return response;
-
-
             } else {
                 // Ready state is DONE but status code is not "OK"
                 /*
@@ -103,7 +89,6 @@ function userShelves(books){
 }
 //getData();
 
-
 function displayshelves(arrays){
     for(let i=0;i<arrays.length;i++){
         volid=arrays[i];
@@ -117,7 +102,6 @@ function displayshelves(arrays){
     }
 }
 displayshelves(arr);
-
 
 async function processUsers(array){
     let result;

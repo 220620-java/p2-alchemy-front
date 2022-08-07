@@ -1,7 +1,6 @@
 <html>
     <head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1"/>
 			<meta http-equiv="X-UA-Compatible" content="ie=edge">
 			<title>Alchemy Books | Home</title>
 			<link rel="stylesheet" href="styles/style.css">
@@ -12,41 +11,33 @@
         <script src="scripts/booksOrigional.js" defer></script>
     </head>
     <body>
-        <nav id="nav">
-            <span id="leftNav">
-                <a href="index.html">Alchemy Books</a>
-            </span>
-            <span id="rightNav">
-                <a href="login.html" id="loginLink">Log In</a>
-                <a href="#" id="logoutBtn">Log Out</a>
-                <a href="shelves.html" id="myShelves">My Shelves</a>
-            </span>
-        </nav>
         <main id="main">
-            <h1>Welcome to Alchemy Books!</h1>
-            <span id="msg"></span>
-        </main>
-        <table id="books" class="table table-bordered table table-hover" width="100%" cellspacing="0"><colgroup><col /><col /><col /></colgroup>
-            <thead>
-            <tr>
-            <th>BookName</th>
-            <th>ISBN</th>
-            <th>Author First Name</th>
-            <th>Author Lirst Name</th>
-            </tr>
-            </thead>
-            <tbody id="emp_body"></tbody>
-        </table>
-            <div id="pager"></div>
-    
-    
-    ---------------------------------------------------------
-           <!-- Using AJAX to get data from an API-->
-            <br>
-            <input type="string" id="dataInput" />
-            <button type="button" id="getData">Get Data</button>
-            <section id="data">
-    
-            </section>
+					<header class="row border-bottom">
+						<h1 id="page-title" class="col-sm-10 col-md-6 col-lg-9"><a href="index.html" class="text-dark">Welcome to Alchemy Books!</a></h1>
+						<nav class="navbar navbar-default col-sm-2 col-md-6 col-lg-3">
+							<a href="login.html" id="loginLink" class="text-dark">Log In</a>
+							<a href="#" id="logoutBtn" class="text-dark">Log Out</a>
+							<a href="shelves.html" id="myShelves" class="text-dark">Shelves</a>
+						</nav>
+					</header>
+					<table id="books" class="table table-bordered table table-hover p-0" width="100%" cellspacing="0"><colgroup><col /><col /><col /></colgroup>
+							<thead>
+							<tr>
+							<th>Book Title</th>
+							<th>ISBN</th>
+							<th>Author</th>
+							<th>Book Cover</th>
+							</tr>
+							</thead>
+							<tbody id="emp_body"></tbody>
+					</table>
+					<div id="pager"></div>
+					---------------------------------------------------------
+          <!-- Using AJAX to get data from an API-->
+					<br>
+					<input type="string" id="dataInput" />
+					<button type="button" id="getData">Get Data</button>
+					<section id="data"></section>
+				</main>
     </body>
 </html>

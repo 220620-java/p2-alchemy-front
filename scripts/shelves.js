@@ -29,11 +29,12 @@ function selectShelf(element) {
     //reset inner html so previous books are not shown
     bookTable.innerHTML=``;
     bookTable.innerHTML=`<tr>
-        <th>Books<th>
+        <th>Books On Your Shelf<th>
     <tr>`;
     let shelf=element.getAttribute('value');
     let books = loggedInUser.shelves;
     for(let book of books) {
+        console.log(book.bookISBN);
         if(JSON.stringify(book.category.id)== shelf) {
             let tr = document.createElement('tr');
             tr.innerHTML = `

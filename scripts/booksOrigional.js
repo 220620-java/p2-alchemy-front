@@ -6,22 +6,14 @@ var paginationapi=`&startIndex=${one}&maxResults=${five}`;
 
 getLoggedInUser();
 //this url is a test url below
-
 //apiURL = "https://www.googleapis.com/books/v1/volumes?q=water&key=&key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew";
-
-/*
-    MUST BE FILLED IN TO CUSTOMIZE EXAMPLE
-*/
 // Endpoint you are sending a GET request to
-
-
 document.getElementById('getData').onclick =getData;//call this as a callback
 document.getElementById('addBook').onclick = addBook;
 
 // Get the input field
 var userInput = document.getElementById('dataInput');
 const output = document.getElementById('data');
-
 
 // Execute a function when the user presses a key on the keyboard
 userInput.addEventListener("keypress", function(event) {
@@ -30,7 +22,6 @@ userInput.addEventListener("keypress", function(event) {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
-    
     document.getElementById("getData").onclick=getData;
   }
 });
@@ -59,24 +50,20 @@ async function addBook(element) {
         });
     }
 }
+
 function getData() {
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
     userInput = document.getElementById('dataInput');
     var apiURL = api + userInput.value+ key;
     
-
     // 4 steps to making an AJAX call
     // STEP 1: Create an XML Http Request object
     var xhttp = new XMLHttpRequest();
-
     // STEP 2: Set a callback function for the readystatechange event
     xhttp.onreadystatechange = receiveData;
-
     // STEP 3: Open the request
-  
     xhttp.open('GET', apiURL);
- 
     // STEP 4: Send the request
     xhttp.send();
 
@@ -121,8 +108,6 @@ function getData() {
         return false;
     }
     return (typeof val ==='object');
-
-
 }
 function objProps(obj){
     for(let val in obj){
@@ -133,8 +118,6 @@ function objProps(obj){
             console.log(val,obj[val]);
         }
     }
-    
-
 }
 */
 
@@ -145,7 +128,6 @@ let numberPerPage = 15;
 
 function nextPage() {
     currentStart += numberPerPage;
-
     showBooks();
 }
 var five =5;
@@ -179,26 +161,11 @@ function displayBooks(books){
         let title = books.items[i].volumeInfo.title;
         let authors = books.items[i].volumeInfo.authors;
         let pageCount = books.items[i].volumeInfo.pageCount;
-        let categories = books.items[i].volumeInfo.categories;
-
-        
     }
-
 }
 */
 
-
-async function getPets() {
-    let resp = await fetch(apiUrl+'/pets');
-
-    if (resp.ok) {
-        let pets = await resp.json();
-        showPets(pets);
-    }
-}
-
 function showBooks(books) {
-
     books = Object.values(books);
     //console.log(books[0]);
     //console.log(books[1]);
@@ -216,7 +183,7 @@ function showBooks(books) {
             <td>${barray[i].volumeInfo.title}</td>
             <td>${barray[i].volumeInfo.industryIdentifiers[0].identifier}</td>
             <td>${barray[i].volumeInfo.authors[0]}</td>
-            <td><img src="${barray[i].volumeInfo.imageLinks.large}" width="25" height="25" /></td>
+            <td><img src="${barray[i].volumeInfo.imageLinks.thumbnail}" width="70vw" height="70vw" /></td>
             <td><button id="addBook" onClick="addBook(this)" value="${barray[i].id}">add</button></td>
         `;
        // this can go up there ^ <td><button type="button" id="adopt_${pet.id}">Adopt</button></td>
@@ -224,13 +191,7 @@ function showBooks(books) {
        document.getElementById("emp_body").appendChild(tr);
        // document.getElementById('adopt_'+pet.id).addEventListener('click', adoptPet);
     }
-    //var btn = document.getElementById("addBook").onclick=addBook(this);
-
-
-
-
-
-    
+    //var btn = document.getElementById("addBook").onclick=addBook(this);  
 }
 
 async function putBook(isbn) {
@@ -261,32 +222,15 @@ async function putBook(isbn) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-  
 function populateData(response) {
     //var dataSection = document.getElementById('data');
     //console.log(response.items[0].volumeInfo.authors);//authors
     //console.log(response.items[0].volumeInfo.industryIdentifiers[0]);//grabs the isbn 13 
-//var  output = objProps(response);
-let empBody = document.getElementById("emp_body");
-empBody.innerHTML='';
-showBooks(response);
-
- 
-  
-   
-
-    
+    //var  output = objProps(response);
+    let empBody = document.getElementById("emp_body");
+    empBody.innerHTML='';
+    showBooks(response);
     /*
         Process data from the API to display on the page.
     */
-
 }
