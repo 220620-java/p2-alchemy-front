@@ -1,5 +1,5 @@
-import axios from 'axios';
-const http = require('http');
+//import axios from 'axios';
+//const http = require('http');
 function Login(){
 	var username = document.getElementById('username');
 	var password = document.getElementById('password');
