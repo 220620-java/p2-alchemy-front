@@ -27,9 +27,10 @@ userInput.addEventListener("keypress", function(event) {
 });
 
 async function addBook(element) {
-    // element = book id
+    console.log(element.value);
     // if we want to store more information on the book, make another google book api call
-    let shelfRequest = {category:'wish list', book:element.value, bookCover:aklshdfkl};
+    let shelfRequest = {category:'wish list', book:element.id, bookCover: element.value};
+    console.log(shelfRequest.bookCover);
     // create shelf localhost:8080/shelf requestbody Map<String,String> bookinformation
     let resp = await fetch(apiUrl+'/shelf', {
         method: 'POST',
@@ -169,7 +170,7 @@ function showBooks(books) {
     books = Object.values(books);
     //console.log(books[0]);
     //console.log(books[1]);
-    console.log(books[2]);
+    //console.log(books[2]);
     let barray=books[2];
     console.log(barray.length);
     console.log(barray[1].volumeInfo.title);
@@ -184,7 +185,8 @@ function showBooks(books) {
             <td>${barray[i].volumeInfo.industryIdentifiers[0].identifier}</td>
             <td>${barray[i].volumeInfo.authors[0]}</td>
             <td><img src="${barray[i].volumeInfo.imageLinks.thumbnail}" width="70vw" height="70vw" /></td>
-            <td><button id="addBook" onClick="addBook(this)" value="${barray[i].id}">add</button></td>
+            <td><button id="${barray[i].id}" onClick="addBook(this)" 
+            value="${barray[i].volumeInfo.imageLinks.thumbnail}">Add</button></td>
         `;
        // this can go up there ^ <td><button type="button" id="adopt_${pet.id}">Adopt</button></td>
        console.log(barray[i].id);
