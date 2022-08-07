@@ -26,7 +26,7 @@ function showLoggedInDisplay() {
     document.getElementById('logoutBtn').hidden=false;
     document.getElementById('myShelves').hidden=false;
 
-    document.getElementById('nav-logout').addEventListener('click', logOut);
+    document.getElementById('logoutBtn').addEventListener('click', logOut);
 }
 // hides/shows linkes when logged out
 function showLoggedOutDisplay() {
@@ -34,7 +34,7 @@ function showLoggedOutDisplay() {
     document.getElementById('logoutBtn').hidden=true;
     document.getElementById('myShelves').hidden=true;
 
-    document.getElementById('nav-logout').removeEventListener('click', logOut);
+    document.getElementById('logoutBtn').removeEventListener('click', logOut);
 }
 
 function logOut() {
