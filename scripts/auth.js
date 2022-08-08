@@ -1,8 +1,8 @@
-let apiUrl = 'http://localhost:8080';
 let loggedInUser;
 
 // retrieve the currently logged in user from the back end
 async function getLoggedInUser() {
+    let apiUrl = 'http://localhost:8080';
 	//change here -----------------------------------------------------------------
     let userId = JSON.parse(sessionStorage.getItem('alchemy-id'));
     if (userId) {
