@@ -67,7 +67,7 @@ function showBook(response) {
             <img id="singleBookImg" src="${barray.imageLinks.thumbnail}" alt="${barray.title} book cover" />
         </div>
         <div class="col-sm-0 col-md-1"></div>
-        <div class="col-sm-12 col-md-7 mt-5">
+        <div class="col-sm-12 col-md-7 mt-5 text-white">
             <h2><span class="font-weight-bold">Title:</span> ${barray.title}</h2>
             <h3><span class="font-weight-bold">Author:</span> ${barray.authors[0]}</h3>
             <h3><span class="font-weight-bold">Publisher:</span> ${barray.publisher}</h3>

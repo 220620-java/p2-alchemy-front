@@ -19,7 +19,7 @@ async function showShelves() {
         let td = document.getElementById('categoryRow');
         //
         td.innerHTML += `
-            <button type="button" id="shelf" onClick="selectShelf(this)" value="${category.id}">${category.categoryName}</button>
+            <button type="button" id="shelf" class="text-white" onClick="selectShelf(this)" value="${category.id}">${category.categoryName}</button>
         `;
     }
 }
@@ -29,7 +29,7 @@ function selectShelf(element) {
     //reset inner html so previous books are not shown
     bookTable.innerHTML=``;
     bookTable.innerHTML=`
-        <h3 class="col-12">Books On Your Shelf<h3>
+        <h3 class="col-12 text-white">Books On Your Shelf<h3>
     `;
     let shelf=element.getAttribute('value');
     let books = loggedInUser.shelves;

@@ -22,9 +22,9 @@ function displayUser(userInfo) {
 
 	let userDetails = document.getElementById('user-details');
 	userDetails.innerHTML = `
-		<h2>Your Account Details</h2>
-		<h3>Username: ${userInfo.username}</h3>
-		<h3>User ID: ${userInfo.id}</h3>
-		<h3>Name: ${userInfo.firstName} ${userInfo.lastName}</h3>
+		<h2 class="text-white">Your Account Details</h2>
+		<h3 class="text-white">Username: ${userInfo.username}</h3>
+		<h3 class="text-white">User ID: ${userInfo.id}</h3>
+		<h3 class="text-white">Name: ${userInfo.firstName} ${userInfo.lastName}</h3>
 	`;
 }
