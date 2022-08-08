@@ -1,14 +1,4 @@
 let apiUrl = 'http://localhost:8080';
-getLoggedInUser().then(setup);
-
-function setup() {
-    if (!loggedInUser) {
-        let loginBtn = document.getElementById('loginBtn');
-        loginBtn.addEventListener('click', login);
-    } else {
-        window.location.href='./index.html';
-    }
-}
 
 async function login() {
     let msgSpan = document.getElementById('msg');
