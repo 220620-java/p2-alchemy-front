@@ -18,7 +18,7 @@ async function getUser() {
 
 function displayUser(userInfo) {
 	let pageTitle = document.getElementById('page-title');
-	pageTitle.innerHTML = `<a href="index.html" class="text-dark">Alchemy Books</a> - ${userInfo.username}'s Profile`;
+	pageTitle.innerHTML = `<a href="index.html" class="text-white">Alchemy Books</a> - ${userInfo.username}'s Profile`;
 
 	let userDetails = document.getElementById('user-details');
 	userDetails.innerHTML = `
