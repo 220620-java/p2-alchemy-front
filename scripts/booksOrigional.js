@@ -182,6 +182,7 @@ function showPets(books) {
    // console.log(barray[i]["volumeInfo"]["title"]);
     for (let i=0 ;i< barray.length;i++) {
         // create a row for each pet
+        console.log(barray[i].id);
         let tr = document.createElement('tr');
         console.log(barray[i].volumeInfo.title);
        // let petNeeds = petNeedsString(pet.needs);

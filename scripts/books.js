@@ -17,7 +17,6 @@ arr.push(`UY_MAwAAQBAJ?`);
 
 
 
-
 function getData(apiURL) {
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
@@ -75,6 +74,8 @@ function getData(apiURL) {
         }
     }
 }
+var bookcase =processUsers(arr);
+console.log(bookcase);
 
 function userShelves(books){
     books = Object.values(books);
@@ -116,18 +117,22 @@ function displayshelves(arrays){
         
     }
 }
-displayshelves(arr);
-
 
 async function processUsers(array){
     let result;
     let promises = [];
+    varuser_list=new List();
     for(let i = 0; i < array.length; i++){
-        promises.push(make_api_call(user_list[i].Id));
+        
+        let apiURL=volumesAPI+volid+volquery+key;
+        promises.push(getData(apiURL));
     }
     result = await Promise.all(promises);
     for(let i = 0; i < user_list.length; i++){
         user_list[i]['result'] = result[i];
+
     }
     return user_list;
 }
+
+processUsers(arr);
