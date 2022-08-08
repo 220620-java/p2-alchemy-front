@@ -24,10 +24,20 @@ userInput.addEventListener("keypress", function(event) {
 });
 
 async function addBook(element) {
-    console.log(element.value);
-    // if we want to store more information on the book, make another google book api call
-    let shelfRequest = {category:'wish list', book:element.id, bookCover: element.value};
-    console.log(shelfRequest.bookCover);
+    let catChoice = window.prompt('Which shelf would you like this book to go into? 1. reading, 2. done, or 3. wish list');
+    switch(catChoice) {
+        case ('1' || 'reading'):
+            catChoice = 'reading';
+            break;
+        case ('2' || 'done'):
+            catChoice = 'done';
+            break;
+        case ('3' || 'wish list'):
+            catChoice = 'wish list';
+            break;
+    }
+    let apiUrl = 'http://localhost:8080';
+    let shelfRequest = {category: catChoice, book:element.id, bookCover: element.value};
     // create shelf localhost:8080/shelf requestbody Map<String,String> bookinformation
     let resp = await fetch(apiUrl+'/shelf', {
         method: 'POST',
@@ -53,7 +63,7 @@ function getData() {
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
     userInput = document.getElementById('dataInput');
-    var apiURL = api + userInput.value + key;
+    let apiURL = api + userInput.value + key;
     
     // 4 steps to making an AJAX call
     // STEP 1: Create an XML Http Request object
