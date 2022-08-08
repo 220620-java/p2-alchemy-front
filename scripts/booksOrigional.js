@@ -6,8 +6,7 @@ var paginationapi=`&startIndex=${one}&maxResults=${five}`;
 
 getLoggedInUser();
 
-document.getElementById('getData').onclick =getData;//call this as a callback
-document.getElementById('addBook').onclick = addBook;
+document.getElementById('getData').onclick = getData;//call this as a callback
 
 // Get the input field
 var userInput = document.getElementById('dataInput');
@@ -123,12 +122,9 @@ function showBooks(books) {
             <td><button id="${barray[i].id}" onClick="addBook(this)" 
             value="${barray[i].volumeInfo.imageLinks.thumbnail}">Add</button></td>
         `;
-       // this can go up there ^ <td><button type="button" id="adopt_${pet.id}">Adopt</button></td>
        console.log(barray[i].id);
        document.getElementById("emp_body").appendChild(tr);
-       // document.getElementById('adopt_'+pet.id).addEventListener('click', adoptPet);
-    }
-    //var btn = document.getElementById("addBook").onclick=addBook(this);  
+    } 
 }
 
 async function putBook(isbn) {
@@ -172,22 +168,22 @@ function populateData(response) {
     */
 }
 
-let currentStart = 0;
-let numberPerPage = 15;
+// let currentStart = 0;
+// let numberPerPage = 15;
 
-//button.addEventListener('click', nextPage); //add a next page button 
+// //button.addEventListener('click', nextPage); //add a next page button 
 
-function nextPage() {
-    currentStart += numberPerPage;
-    showBooks();
-}
-var five =5;
-var one =1;
-async function showBooks() {
-    let resp = await fetch(apiUrl);
-    if (resp.ok) {
-       let books = await resp.json();
-       displayBooks(books);
+// function nextPage() {
+//     currentStart += numberPerPage;
+//     showBooks();
+// }
+ var five =5;
+ var one =1;
+// async function showBooks() {
+//     let resp = await fetch(apiUrl);
+//     if (resp.ok) {
+//        let books = await resp.json();
+//        displayBooks(books);
 
-   }
-}
+//    }
+// }

@@ -23,6 +23,10 @@ main {
     padding:1em 3em;
 }
 
+.card {
+    width: 25vw;
+}
+
 .images {
     display:grid;
     grid-template: "img img img" / auto;
