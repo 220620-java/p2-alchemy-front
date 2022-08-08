@@ -1,5 +1,5 @@
 * {
-	font-family: Helvetica;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -66,4 +66,9 @@ form>button {
 
 button:hover, a:hover {
     cursor:pointer;
+}
+
+#singleBookImg {
+    width: 30vw;
+    margin: 5vw;
 }

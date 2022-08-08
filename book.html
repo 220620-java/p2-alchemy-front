@@ -5,23 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>Alchemy Books | Book Details</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="styles/style.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<script src="scripts/book.js" defer></script>
 		<script src="scripts/auth.js" defer></script>
+		<script src="scripts/book.js" defer></script>
 	</head>
 	<body>
-		<header class="row">
-			<h1 id="page-title" class="col-sm-10 col-md-6 col-lg-9"><a href="index.html" class="text-dark">Alchemy Books | Book Details</a></h1>
-			<nav class="navbar navbar-default col-sm-2 col-md-6 col-lg-3">
-				<a href="login.html" id="loginLink" class="text-dark">Log In</a>
-				<a href="#" id="logoutBtn" class="text-dark">Log Out</a>
-				<a href="shelves.html" id="myShelves" class="text-dark">Shelves</a>
-			</nav>
-		</header>
 		<main>
-			<div id="bookDetails"></div>
+			<header class="row border-bottom">
+				<h1 id="page-title" class="col-sm-10 col-md-6 col-lg-9"><a href="index.html" class="text-dark">Alchemy Books | Book Details</a></h1>
+				<nav class="navbar navbar-default col-sm-2 col-md-6 col-lg-3">
+					<a href="login.html" id="loginLink" class="text-dark">Log In</a>
+					<a href="#" id="logoutBtn" class="text-dark">Log Out</a>
+					<a href="shelves.html" id="myShelves" class="text-dark">Shelves</a>
+				</nav>
+			</header>
+			<div id="bookDetails" class="row"></div>
 		</main>
 	</body>
 </html>

@@ -20,7 +20,6 @@ async function showShelves() {
         td.innerHTML += `
             <button type="button" id="shelf" onClick="selectShelf(this)" value="${category.id}">${category.categoryName}</button>
         `;
-        //categoryTable.appendChild(td);
     }
 }
 
@@ -34,14 +33,17 @@ function selectShelf(element) {
     let shelf=element.getAttribute('value');
     let books = loggedInUser.shelves;
     for(let book of books) {
-        console.log(book.bookISBN);
         if(JSON.stringify(book.category.id)== shelf) {
             let card = document.createElement('div');
             card.classList.add('card');
             card.innerHTML = `
-                <a class="bookLink" href="book.html" value="${book.bookISBN}"><img class="card-img-top" src="${book.bookCover}" alt="book cover"></a>
+                <a class="bookLink" id="${book.bookISBN}" onClick="setVolId(this)" href="book.html"><img class="card-img-top" src="${book.bookCover}" alt="book cover"></a>
             `;
             bookTable.appendChild(card);
         }
     }
+}
+
+function setVolId(element) {
+    localStorage.setItem('bookId', element.id);
 }

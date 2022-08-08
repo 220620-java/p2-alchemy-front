@@ -1,12 +1,11 @@
 const api = `https://www.googleapis.com/books/v1/volumes?q=`;
 const volumesAPI=`https://www.googleapis.com/books/v1/volumes/`
 //var volid = getVolId();
-var volid;
-const volquery= volumesAPI +volid;
+var volId;
 const key = `?key=AIzaSyB96fJBOycKGpt_-yifVN0GYrYau4FnVew`;
 
 //volquery+key for single book page
-//document.onload = getData;
+document.onload = getVolId();
 
 function getData(apiURL) {
     // 4 steps to making an AJAX call
@@ -30,13 +29,12 @@ function getData(apiURL) {
         */
         console.log(apiURL);
         // Emptying out the div before inserting new data.
-        document.getElementById("data").innerHTML = "";
         if (xhttp.readyState === 4) {
             if (xhttp.status === 200) {
                 // Ready state is DONE, HTTP status code is "OK"
                 var response = xhttp.responseText;
                 response = JSON.parse(response);
-                return response;
+                showBook(response);
             } else {
                 // Ready state is DONE but status code is not "OK"
                 /*
@@ -52,14 +50,28 @@ function getData(apiURL) {
     }
 }
 
-function getVolId(element) {
-    console.log(element.value);
-    volId = element.value;
-    console.log(volid);
+function getVolId() {
+    volId = localStorage.getItem('bookId');
+    console.log(volId);
+    let volquery = volumesAPI + volId + key; 
+    getData(volquery);
 }
 
-function showBook() {
+function showBook(response) {
+    let book = Object.values(response);
+    console.log(book);
+    let barray=book[4];
+    console.log(barray.title);
+    //let tr = document.createElement('tr');
+    console.log(barray.authors[0]);
 
+    document.getElementById('bookDetails').innerHTML = `
+        <div class="col-sm-12 col-md-5">
+            <img id="singleBookImg" src="${barray.imageLinks.thumbnail}" alt="${barray.title} book cover" />
+        </div>
+        <div class="col-sm-12 col-md-7">
+            <h2>${barray.title}</h2>
+            <h3>${barray.authors[0]}</h3>
+        </div>
+    `;
 }
-
-document.getElementById('bookLink').addEventListener('click', getVolId(element));

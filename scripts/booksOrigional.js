@@ -53,7 +53,7 @@ function getData() {
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
     userInput = document.getElementById('dataInput');
-    var apiURL = api + userInput.value+ key;
+    var apiURL = api + userInput.value + key;
     
     // 4 steps to making an AJAX call
     // STEP 1: Create an XML Http Request object
