@@ -19,7 +19,7 @@ async function showShelves() {
         let td = document.getElementById('categoryRow');
         //
         td.innerHTML += `
-            <button type="button" id="shelf" class="text-white" onClick="selectShelf(this)" value="${category.id}">${category.categoryName}</button>
+            <button type="button" id="shelf" class="text-dark" onClick="selectShelf(this)" value="${category.id}">${category.categoryName}</button>
         `;
     }
 }
