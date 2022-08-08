@@ -68,11 +68,11 @@ function showBook(response) {
         </div>
         <div class="col-sm-0 col-md-1"></div>
         <div class="col-sm-12 col-md-7 mt-5 text-white">
-            <h2><span class="font-weight-bold">Title:</span> ${barray.title}</h2>
-            <h3><span class="font-weight-bold">Author:</span> ${barray.authors[0]}</h3>
-            <h3><span class="font-weight-bold">Publisher:</span> ${barray.publisher}</h3>
-            <h3><span class="font-weight-bold">Date Published:</span> ${barray.publishedDate}</h3>
-            <p><span class="font-weight-bold">Description:</span><br /> ${barray.description}</p>
+            <h2 class="text-white"><span class="font-weight-bold text-white">Title:</span> ${barray.title}</h2>
+            <h3 class="text-white"><span class="font-weight-bold text-white">Author:</span> ${barray.authors[0]}</h3>
+            <h3 class="text-white"><span class="font-weight-bold text-white">Publisher:</span> ${barray.publisher}</h3>
+            <h3 class="text-white"><span class="font-weight-bold text-white">Date Published:</span> ${barray.publishedDate}</h3>
+            <p class="text-white"><span class="font-weight-bold text-white">Description:</span><br /> ${barray.description}</p>
         </div>
     `;
 }
