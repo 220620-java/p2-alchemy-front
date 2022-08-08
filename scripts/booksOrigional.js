@@ -180,6 +180,7 @@ function showPets(books) {
     console.log(barray.length);
     console.log(barray[1].volumeInfo.title);
    // console.log(barray[i]["volumeInfo"]["title"]);
+   let dark = true;
     for (let i=0 ;i< barray.length;i++) {
         // create a row for each pet
         console.log(barray[i].id);
@@ -193,12 +194,18 @@ function showPets(books) {
             <td><img src="${barray[i].volumeInfo.imageLinks.smallThumbnail}" width="25" height="25" /></td>
             <td><button id ="buttons">add</button></td>
         `;
+        // ✅ Set Style Attributes on Element
+    
+       
        // this can go up there ^ <td><button type="button" id="adopt_${pet.id}">Adopt</button></td>
        document.getElementById("emp_body").appendChild(tr);
        // document.getElementById('adopt_'+pet.id).addEventListener('click', adoptPet);
     }
     var btn = document.getElementById("buttons").onclick=buttonclick;
-
+    btn.setAttribute(
+        'style',
+        'background-color:black; color:grey;',
+    );
     function buttonclick(){
         console.log("hello");
     }
