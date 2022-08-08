@@ -9,6 +9,7 @@ function setup() {
 }
 
 async function showShelves() {
+    let apiUrl = 'http://localhost:8080';
     let categoryTable = document.getElementById('categoryTable');
     let resp = await fetch(apiUrl+'/category/all');
     let categories = await resp.json();
