@@ -63,10 +63,9 @@ function showBook(response) {
     let barray=book[4];
 
     document.getElementById('bookDetails').innerHTML = `
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-md-5">
             <img id="singleBookImg" src="${barray.imageLinks.thumbnail}" alt="${barray.title} book cover" />
         </div>
-        <div class="col-sm-0 col-md-1"></div>
         <div class="col-sm-12 col-md-7 mt-5 text-white">
             <h2 class="text-white"><span class="font-weight-bold text-white">Title:</span> ${barray.title}</h2>
             <h3 class="text-white"><span class="font-weight-bold text-white">Author:</span> ${barray.authors[0]}</h3>
