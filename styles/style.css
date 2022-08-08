@@ -58,6 +58,10 @@ th,td {
     padding:1em;
 }
 
+p {
+    color: white;
+}
+
 fieldset {
     border:none;
 }

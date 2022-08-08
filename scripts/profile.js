@@ -27,4 +27,7 @@ function displayUser(userInfo) {
 		<h3 class="text-white">User ID: ${userInfo.id}</h3>
 		<h3 class="text-white">Name: ${userInfo.firstName} ${userInfo.lastName}</h3>
 	`;
+
+	let bookcase = document.getElementById('bookcase');
+	bookcase.innerHTML = `<h2><a class="text-white" href="shelves.html">View your shelves here!</a></h2>`;
 }
