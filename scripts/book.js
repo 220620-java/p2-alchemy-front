@@ -61,17 +61,18 @@ function showBook(response) {
     let book = Object.values(response);
     console.log(book);
     let barray=book[4];
-    console.log(barray.title);
-    //let tr = document.createElement('tr');
-    console.log(barray.authors[0]);
 
     document.getElementById('bookDetails').innerHTML = `
-        <div class="col-sm-12 col-md-5">
+        <div class="col-sm-12 col-md-4">
             <img id="singleBookImg" src="${barray.imageLinks.thumbnail}" alt="${barray.title} book cover" />
         </div>
-        <div class="col-sm-12 col-md-7">
-            <h2>${barray.title}</h2>
-            <h3>${barray.authors[0]}</h3>
+        <div class="col-sm-0 col-md-1"></div>
+        <div class="col-sm-12 col-md-7 mt-5">
+            <h2><span class="font-weight-bold">Title:</span> ${barray.title}</h2>
+            <h3><span class="font-weight-bold">Author:</span> ${barray.authors[0]}</h3>
+            <h3><span class="font-weight-bold">Publisher:</span> ${barray.publisher}</h3>
+            <h3><span class="font-weight-bold">Date Published:</span> ${barray.publishedDate}</h3>
+            <p><span class="font-weight-bold">Description:</span><br /> ${barray.description}</p>
         </div>
     `;
 }
