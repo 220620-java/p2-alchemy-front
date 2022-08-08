@@ -1,10 +1,22 @@
+@import '~mdb-ui-kit/css/mdb.min.css';
 * {
 	font-family: Arial, Helvetica, sans-serif;
+	 color:black;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-    font-size:1.8vw;
+  margin: 0;
+  background: linear-gradient(45deg, #030303, #41405b);
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size:1.8vw;
 }
+
 
 /* nav {
     display:flex;
